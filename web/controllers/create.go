@@ -27,9 +27,9 @@ func (app *Application) CreateHandler(w http.ResponseWriter, r *http.Request) {
 		vegData := Veg{}
 		vegKey := r.FormValue("vegKey")
 		vegData.Name = r.FormValue("vegName")
-		carData.Id = r.FormValue("vegId")
-		carData.Quality = r.FormValue("vegQuality")
-		carData.Owner = r.FormValue("vegOwner")
+		vegData.Id = r.FormValue("vegId")
+		vegData.Quality = r.FormValue("vegQuality")
+		vegData.Owner = r.FormValue("vegOwner")
 
 		RequestData, _ := json.Marshal(carData)
 		txid, err := app.Fabric.CreateVeg(carKey, string(RequestData))
