@@ -21,10 +21,10 @@ func (app *Application) UpdateHandler(w http.ResponseWriter, r *http.Request) {
 
 	type VegData struct {
 		Key    string `json:"key"`
-		Record Car    `json:"record"`
+		Record Veg    `json:"record"`
 	}
 
-	var data []CarData
+	var data []VegData
 	json.Unmarshal([]byte(blockData), &data)
 
 	returnData := &struct {

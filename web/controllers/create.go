@@ -31,8 +31,8 @@ func (app *Application) CreateHandler(w http.ResponseWriter, r *http.Request) {
 		vegData.Quality = r.FormValue("vegQuality")
 		vegData.Owner = r.FormValue("vegOwner")
 
-		RequestData, _ := json.Marshal(carData)
-		txid, err := app.Fabric.CreateVeg(carKey, string(RequestData))
+		RequestData, _ := json.Marshal(vegData)
+		txid, err := app.Fabric.CreateVeg(vegKey, string(RequestData))
 
 		if err != nil {
 			http.Error(w, "Unable to create record in the blockchain", 500)
